@@ -21,8 +21,6 @@ export default {
     Contatos
   },
   created() {
-    //this.$http.get("https://jsonplaceholder.typicode.com/users");
-    // console.log(this.$http);
     this.carregar();
   },
   methods: {
@@ -47,13 +45,6 @@ export default {
         this.itens = contatos;
         this.show = true;
       });
-
-      // this.itens = [
-      //   { id: 1, nome: "Pedro", usuario: "Silva" },
-      //   { id: 2, nome: "Jose", usuario: "Mola" },
-      //   { id: 3, nome: "Jose", usuario: "Mola" },
-      //   { id: 4, nome: "Jose", usuario: "Mola" }
-      // ];
     }
   },
   data() {

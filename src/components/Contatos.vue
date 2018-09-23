@@ -34,6 +34,7 @@ export default {
     console.log("beforeCreate");
   },
   beforeDestroy() {
+    this.table.destroy();
     console.log("beforeDestroy");
   },
   beforeUpdate() {
@@ -42,8 +43,8 @@ export default {
     console.log("beforeUpdate");
   },
   updated() {
-    this.table = $("#teste").DataTable();
     console.log("updated");
+    this.criarTabela();
   },
   methods: {
     excluir(id) {
@@ -51,16 +52,15 @@ export default {
       console.log("excluir", id);
     },
     criarTabela() {
-      let table = $("#teste").DataTable();
-      this.table
+      this.table = $("#teste").DataTable();
+      let tempTable = this.table;
+      tempTable
         .on("search.dt", function(e, settings, len) {
-          //var value = $(".dataTables_filter input").val();
-          console.log("pesquisar", this.table.search());
+          console.log("pesquisar", tempTable.search());
         })
         .on("length.dt", function(e, settings, len) {
           console.log("length", len);
         });
-      this.table = table;
     }
   },
   name: "Contatos",
