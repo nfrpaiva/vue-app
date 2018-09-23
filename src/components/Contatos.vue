@@ -12,12 +12,15 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(item) in itens" :key="item.id">
+                <tr v-for="(item, index) in itens" :key="item.id">
                     <td>{{item.id}}</td>
                     <td>{{item.nome}}</td>
                     <td>{{item.email}}</td>
                     <td>{{item.body}}</td>
-                    <td><button class="btn btn-danger" @click.stop.prevent="excluir(item.id)">excluir</button></td>
+                    <td>
+                      <button class="btn btn-danger" @click.stop.prevent="excluir(item.id)">excluir</button>
+                      <button class="btn btn-success" @click.stop.prevent="editar(index)">editar</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -47,6 +50,10 @@ export default {
     this.criarTabela();
   },
   methods: {
+    editar(index) {
+      console.log("editar contato");
+      this.$emit("editar-contato", index);
+    },
     excluir(id) {
       this.$emit("excluir-contato", id);
       console.log("excluir", id);

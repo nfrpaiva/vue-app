@@ -1,29 +1,40 @@
 <template>
   <div id="app">
     <div class="container">
+      <Post :contato="item" v-on:add-contato="addPost"/>
       <button @click="clean" class="btn btn-danger">Limpar</button>
       <button @click="carregar" class="btn btn-success m-2 ">Carregar</button>
       <br>
-      <Contatos v-on:excluir-contato="excluir" v-show="show" :itens="itens"/>
+      <Contatos v-on:editar-contato="editarContato" v-on:excluir-contato="excluir" v-show="show" :itens="itens"/>
     </div>
   </div>
 </template>
 
 <script>
+/* eslint-disable */
 import HelloWorld from "./components/HelloWorld.vue";
 import Contatos from "./components/Contatos.vue";
+import Post from "./components/Post.vue";
 import axios from "axios";
 
 export default {
   name: "app",
   components: {
     HelloWorld,
-    Contatos
+    Contatos,
+    Post
   },
   created() {
     this.carregar();
   },
   methods: {
+    addPost(post) {
+      console.log(post);
+      this.itens.push(post);
+    },
+    editarContato(index) {
+      this.item = this.itens[index];
+    },
     excluir(id) {
       this.itens = this.itens.filter(e => e.id !== id);
     },
@@ -49,12 +60,9 @@ export default {
   },
   data() {
     return {
-      todo: "Primeiro valor",
-      itens: [
-        { id: 40, nome: "Pedro", usuario: "Silva" },
-        { id: 42, nome: "Jose", usuario: "Mola" }
-      ],
-      show: false
+      itens: [],
+      show: false,
+      item: {}
     };
   }
 };
