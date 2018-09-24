@@ -1,5 +1,5 @@
 <template>
-<form >
+<form class="m-2" >
     <div class=form-group>
         <label for="id">Id</label>
         <input class=form-control type="text" v-model="contato.id">
