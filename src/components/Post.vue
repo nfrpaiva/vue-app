@@ -1,5 +1,10 @@
 <template>
 <form class="m-2" >
+    <FormGroup name="id" :model.sync="contato.id" label ="Id" />
+    <FormGroup name="nome" :model.sync="contato.nome" label ="Nome"/>
+    <FormGroup name="email" type="email" :model.sync="contato.email" label ="E-mail"/>
+    <FormGroup name="body" :model.sync="contato.body" label ="Body"/>
+    
     <div class=form-group>
         <label for="id">Id</label>
         <input class=form-control type="text" v-model="contato.id">
@@ -24,7 +29,11 @@
 </template>
 
 <script>
+import FormGroup from "./FormGroup.vue";
 export default {
+  components: {
+    FormGroup
+  },
   props: {
     contato: null
   },
