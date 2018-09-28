@@ -29,11 +29,16 @@ export default {
   },
   methods: {
     addPost(post) {
-      console.log(post);
-      this.itens.push(post);
+      let index = this.itens.findIndex(i => i.id == post.id);
+      if (index >= 0) {
+        this.$set(this.itens, index, post);
+      } else {
+        this.itens.push(post);
+      }
+      this.item = {};
     },
     editarContato(index) {
-      this.item = this.itens[index];
+      this.item = Object.assign({}, this.itens[index]);
     },
     excluir(id) {
       this.itens = this.itens.filter(e => e.id !== id);
