@@ -5,8 +5,6 @@
     <Input name="email" type="email" :model.sync="contato.email" label ="E-mail"/>
     <TextArea name="body" :model.sync="contato.body" label ="Body"/>
     <button @click.stop.prevent="addPost" class="btn btn-success float-right">Adicionar</button>
-    <code>{{JSON.stringify(contato, null, 2)}}</code>
-    
 </form>
 </template>
 

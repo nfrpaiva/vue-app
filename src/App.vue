@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="container">
-      <Post :contato="item" v-on:add-contato="addPost"/>
+      <Post v-if="editando" :contato="item" v-on:add-contato="addPost"/>
       <button @click="clean" class="btn btn-danger">Limpar</button>
       <button @click="carregar" class="btn btn-success m-2 ">Carregar</button>
       <br>
@@ -36,9 +36,11 @@ export default {
         this.itens.push(post);
       }
       this.item = {};
+      this.editando = false;
     },
     editarContato(index) {
-      this.item = Object.assign({}, this.itens[index]);
+      this.item = { ...this.itens[index] };
+      this.editando = true;
     },
     excluir(id) {
       this.itens = this.itens.filter(e => e.id !== id);
@@ -58,6 +60,7 @@ export default {
             body: res.body
           };
         });
+        contatos = contatos.filter(e => e.id <= 50);
         this.itens = contatos;
         this.show = true;
       });
@@ -67,7 +70,8 @@ export default {
     return {
       itens: [],
       show: false,
-      item: {}
+      item: {},
+      editando: false
     };
   }
 };
