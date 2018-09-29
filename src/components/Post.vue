@@ -1,10 +1,10 @@
 <template>
-<form class="m-2" >
+<form class="mt-1"  >
     <Input name="id" :model.sync="contato.id"  label="Id" />
     <Input name="nome" :model.sync="contato.nome" label ="Nome"/>
     <Input name="email" type="email" :model.sync="contato.email" label ="E-mail"/>
     <TextArea name="body" :model.sync="contato.body" label ="Body"/>
-    <button @click.stop.prevent="addPost" class="btn btn-success float-right">Adicionar</button>
+    <button @click.stop.prevent="addPost" class="btn btn-success">Adicionar</button>
 </form>
 </template>
 

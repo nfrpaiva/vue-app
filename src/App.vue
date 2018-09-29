@@ -4,6 +4,7 @@
       <Post v-if="editando" :contato="item" v-on:add-contato="addPost"/>
       <button @click="clean" class="btn btn-danger">Limpar</button>
       <button @click="carregar" class="btn btn-success m-2 ">Carregar</button>
+      <button @click.stop.prevent="incluir" class="btn btn-primary" >Incluir</button>
       <br>
       <Contatos v-on:editar-contato="editarContato" v-on:excluir-contato="excluir" v-show="show" :itens="itens"/>
     </div>
@@ -45,8 +46,13 @@ export default {
     excluir(id) {
       this.itens = this.itens.filter(e => e.id !== id);
     },
+    incluir() {
+      this.item = {};
+      this.editando = true;
+    },
     clean() {
       this.itens = [];
+      this.editando = false;
     },
     carregar() {
       let url = "https://jsonplaceholder.typicode.com/comments";

@@ -1,7 +1,7 @@
 <template>
     <div>
     <h1>Contatos {{itens.length}}</h1>
-        <table ref="teste" id="teste" class="table table-striped table-responsive">
+        <!-- <table ref="teste" id="teste" class="table table-striped table-responsive">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -23,7 +23,24 @@
                     </td>
                 </tr>
             </tbody>
-        </table>
+        </table> -->
+        <div class="row">
+        <div class="col-sm-4 mt-1" v-for="(item, index) in itens" :key="item.id">
+          <div class="card">
+            <div class="card-header"># {{item.id}}</div>
+            <div class="card-body">
+              <h4 class="card-title">{{item.nome}}</h4>
+              <h5 class="card-subtitle  mb-2 text-muted">{{item.email}}</h5>
+              <p class="card-text">{{item.body}}</p>
+              <div class="float-right">
+                <button class="btn btn-danger mr-1" @click.stop.prevent="excluir(item.id)">excluir</button>
+                <button class="btn btn-success" @click.stop.prevent="editar(index)">editar</button>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        </div>
     </div>
 </template>
 <script>
