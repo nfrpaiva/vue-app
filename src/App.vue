@@ -2,9 +2,12 @@
   <div id="app">
     <div class="container">
       <Post v-if="editando" :contato="item" v-on:add-contato="addPost"/>
-      <button @click="clean" class="btn btn-danger">Limpar</button>
-      <button @click="carregar" class="btn btn-success m-2 ">Carregar</button>
-      <button @click.stop.prevent="incluir" class="btn btn-primary" >Incluir</button>
+      <div class="float-right">
+        <button @click="clean" class="btn btn-outline-danger">Limpar</button>
+        <button @click="carregar" class="btn btn-outline-success m-2 ">Carregar</button>
+        <button @click.stop.prevent="incluir" class="btn btn-outline-primary" >Incluir</button>
+      </div>
+      
       <br>
       <Contatos v-on:editar-contato="editarContato" v-on:excluir-contato="excluir" v-show="show" :itens="itens"/>
     </div>

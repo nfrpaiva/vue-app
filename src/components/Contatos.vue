@@ -33,10 +33,9 @@
               <h5 class="card-subtitle  mb-2 text-muted">{{item.email}}</h5>
               <p class="card-text">{{item.body}}</p>
               <div class="float-right">
-                <button class="btn btn-danger mr-1" @click.stop.prevent="excluir(item.id)">excluir</button>
-                <button class="btn btn-success" @click.stop.prevent="editar(index)">editar</button>
+                <button class="btn btn-outline-danger mr-1" @click.stop.prevent="excluir(item.id)">excluir</button>
+                <button class="btn btn-outline-success" @click.stop.prevent="editar(index)">editar</button>
               </div>
-              
             </div>
           </div>
         </div>
