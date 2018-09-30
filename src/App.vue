@@ -7,12 +7,6 @@
         <button @click="carregar" class="btn btn-outline-success m-2 ">Carregar</button>
         <button @click.stop.prevent="incluir" class="btn btn-outline-primary" >Incluir</button>
       </div>
-      <!-- <div>
-        <select class="custom-select" name="tipo">
-            <option value="tabela">Tabela</option>
-            <option value="cards">Cards</option>
-        </select>
-      </div> -->
       <br>
       <Contatos v-on:editar-contato="editarContato" v-on:excluir-contato="excluir" v-show="show" :itens="itens"/>
     </div>
@@ -20,7 +14,6 @@
 </template>
 
 <script>
-/* eslint-disable */
 import Contatos from "./components/Contatos.vue";
 import Post from "./components/Post.vue";
 import axios from "axios";
