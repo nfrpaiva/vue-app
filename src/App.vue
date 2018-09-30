@@ -7,7 +7,12 @@
         <button @click="carregar" class="btn btn-outline-success m-2 ">Carregar</button>
         <button @click.stop.prevent="incluir" class="btn btn-outline-primary" >Incluir</button>
       </div>
-      
+      <!-- <div>
+        <select class="custom-select" name="tipo">
+            <option value="tabela">Tabela</option>
+            <option value="cards">Cards</option>
+        </select>
+      </div> -->
       <br>
       <Contatos v-on:editar-contato="editarContato" v-on:excluir-contato="excluir" v-show="show" :itens="itens"/>
     </div>
@@ -16,7 +21,6 @@
 
 <script>
 /* eslint-disable */
-import HelloWorld from "./components/HelloWorld.vue";
 import Contatos from "./components/Contatos.vue";
 import Post from "./components/Post.vue";
 import axios from "axios";
@@ -24,7 +28,6 @@ import axios from "axios";
 export default {
   name: "app",
   components: {
-    HelloWorld,
     Contatos,
     Post
   },
@@ -69,7 +72,7 @@ export default {
             body: res.body
           };
         });
-        contatos = contatos.filter(e => e.id <= 50);
+        contatos = contatos.filter(e => e.id <= 5);
         this.itens = contatos;
         this.show = true;
       });
