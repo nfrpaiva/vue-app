@@ -2,10 +2,10 @@
   <div id="app">
     <header class="showcase">
       <div class="content">
-        <img src="./assets/logo.png" alt="" class="logo">
-        <div class="title">Bem Vindo ao Show</div>
+        <img src="./assets/logo.svg" alt="" class="logo">
+        <div class="title">Lorem, ipsum.</div>
         <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, praesentium?</div>
-        <a href="#container" class="btn btn-outline-primary">Vamos</a>
+        <a href="#container" class="btn btn-outline-primary">Começar</a>
       </div>
     </header>
     <div class="container" id="container">
@@ -109,8 +109,16 @@ export default {
   -webkit-filter: blur(0px);
 }
 .showcase:hover .content {
-  filter: blur (2px);
-  -webkit-filter: blur(2px);
+  /* filter: blur (2px);
+  -webkit-filter: blur(2px); */
+}
+.showcase .content a {
+  color: aliceblue;
+  border-color: aliceblue;
+  margin-top: 1rem;
+}
+.showcase:hover .content a {
+  background-color: unset;
 }
 .content {
   position: absolute;
@@ -137,7 +145,7 @@ export default {
   margin-top: 1rem;
 }
 .content .text {
-  line-height: 1.7;
+  line-height: 2rem;
   margin-top: 1rem;
 }
 body {
