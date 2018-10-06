@@ -2,10 +2,12 @@
   "name": "vue-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://nfrpaiva.github.io/vue-app",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -13,6 +15,7 @@
     "datatables.net": "^1.10.19",
     "datatables.net-bs4": "^1.10.19",
     "datatables.net-dt": "^1.10.19",
+    "gh-pages": "^2.0.1",
     "vue": "^2.5.17"
   },
   "devDependencies": {

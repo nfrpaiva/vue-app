@@ -1,6 +1,14 @@
 <template>
   <div id="app">
-    <div class="container">
+    <header class="showcase">
+      <div class="content">
+        <img src="./assets/logo.png" alt="" class="logo">
+        <div class="title">Bem Vindo ao Show</div>
+        <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, praesentium?</div>
+        <a href="#container" class="btn btn-outline-primary">Vamos</a>
+      </div>
+    </header>
+    <div class="container" id="container">
       <Post v-if="editando" :contato="item" v-on:add-contato="addPost"/>
       <div class="float-right">
         <button @click="clean" class="btn btn-outline-danger">Limpar</button>
@@ -81,3 +89,62 @@ export default {
   }
 };
 </script>
+
+<style>
+.showcase::after {
+  content: "";
+  height: 100vh;
+  width: 100%;
+  background-image: url("./assets/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  transition: all 1000ms;
+}
+.showcase:hover::after {
+  filter: blur (0px);
+  -webkit-filter: blur(0px);
+}
+.showcase:hover .content {
+  filter: blur (2px);
+  -webkit-filter: blur(2px);
+}
+.content {
+  position: absolute;
+  z-index: 1;
+  top: 10%;
+  left: 50%;
+  margin-top: 0px;
+  margin-left: -150px;
+  width: 300px;
+  height: 350px;
+  color: azure;
+  text-align: center;
+  transition: all 1000ms;
+}
+.content .logo {
+  height: 180px;
+  width: 180px;
+}
+#container {
+  transition: all 1000ms;
+}
+.content .title {
+  font-size: 2.2rem;
+  margin-top: 1rem;
+}
+.content .text {
+  line-height: 1.7;
+  margin-top: 1rem;
+}
+body {
+  margin: 0px;
+}
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+
