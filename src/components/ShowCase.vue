@@ -2,12 +2,48 @@
     <header class="showcase">
       <div class="content">
         <img src="../assets/logo.svg" alt="" class="logo">
-        <div class="title">Lorem, ipsum.</div>
+        <div class="title">Lorem, ipsum. {{hora}}</div>
         <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, praesentium?</div>
-        <a href="#container" class="btn btn-outline-primary">Começar</a>
+        <a @click.prevent.stop="change" class="btn btn-outline-primary">{{labelBotao}}</a>
       </div>
     </header>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      hora: new Date(Date.now()).toLocaleTimeString(),
+      interval: Function,
+      started: false,
+      labelBotao: "Começar"
+    };
+  },
+  methods: {
+    getDate() {
+      return new Date(Date.now()).toLocaleTimeString();
+    },
+    start() {
+      this.interval = setInterval(() => (this.hora = this.getDate()), 1000);
+      this.started = true;
+      this.labelBotao = "Parar";
+    },
+    stop() {
+      clearInterval(this.interval);
+      this.started = false;
+      this.labelBotao = "Começar";
+    },
+    change() {
+      if (this.started) {
+        this.stop();
+      } else {
+        this.start();
+      }
+    }
+  }
+};
+</script>
+
 
 <style>
 .showcase::after {
@@ -34,9 +70,7 @@
   color: aliceblue;
   border-color: aliceblue;
   margin-top: 1rem;
-}
-.showcase:hover .content a {
-  background-color: unset;
+  background-color: transparent;
 }
 .content {
   position: absolute;
