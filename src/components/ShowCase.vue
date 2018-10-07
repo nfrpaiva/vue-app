@@ -45,7 +45,7 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 .showcase::after {
   content: "";
   height: 100vh;
@@ -66,11 +66,16 @@ export default {
   filter: blur (0px);
   -webkit-filter: blur(0px);
 }
-.showcase .content a {
+.btn-outline-primary,
+.btn-outline-primary:not(disabled):not(.disabled):active,
+.btn-outline-primary:not(disabled):not(.disabled):active:focus,
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
   color: aliceblue;
-  border-color: aliceblue;
   margin-top: 1rem;
   background-color: transparent;
+  border-color: aliceblue;
+  box-shadow: unset;
 }
 .content {
   position: absolute;
