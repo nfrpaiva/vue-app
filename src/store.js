@@ -92,7 +92,7 @@ export default new Vuex.Store({
   },
   getters: {
     possuiContatos: state => {
-      return state.contatos.length;
+      return state.contatos.length > 0;
     }
   }
 });
