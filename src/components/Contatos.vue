@@ -16,7 +16,10 @@
                 class="btn btn-outline-danger mr-1"
                 @click.stop.prevent="excluir(item.id)"
               >excluir</button>
-              <button class="btn btn-outline-success" @click.stop.prevent="editar(index)">editar</button>
+              <button
+                class="btn btn-outline-success"
+                @click.stop.prevent="prepararParaEdicao(index)"
+              >editar</button>
             </div>
           </div>
         </div>
@@ -61,7 +64,7 @@ export default {
           console.log("length", len);
         });
     },
-    ...mapActions(["excluir"])
+    ...mapActions(["excluir", "prepararParaEdicao"])
   },
   name: "Contatos",
   props: {
