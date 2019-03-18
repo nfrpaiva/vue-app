@@ -1,10 +1,10 @@
 <template>
   <form class="mt-1">
     <fieldset>
-      <Input name="id" :model.sync="contatoEmEdicao.id" label="Id"/>
-      <Input name="nome" :model.sync="contatoEmEdicao.nome" label="Nome"/>
-      <Input name="email" type="email" :model.sync="contatoEmEdicao.email" label="E-mail"/>
-      <TextArea name="body" :model.sync="contatoEmEdicao.body" label="Body"/>
+      <Input name="id" v-model="contatoEmEdicao.id" label="Id"/>
+      <Input name="nome" v-model="contatoEmEdicao.nome" label="Nome"/>
+      <Input name="email" type="email" v-model="contatoEmEdicao.email" label="E-mail"/>
+      <TextArea name="body" v-model="contatoEmEdicao.body" label="Body"/>
       <button @click.stop.prevent="handleAdicionarContato" class="btn btn-success">Adicionar</button>
     </fieldset>
   </form>
@@ -23,7 +23,7 @@ export default {
     this.contatoEmEdicao = { ...this.contato };
   },
   watch: {
-    contato: function(novo, antigo) {
+    contato: function(novo) {
       this.contatoEmEdicao = { ...novo };
     }
   },
@@ -38,6 +38,7 @@ export default {
       contatoEmEdicao: {}
     };
   },
+  props: {},
   computed: {
     ...mapState(["contato"])
   },

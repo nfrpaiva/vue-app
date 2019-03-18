@@ -1,11 +1,8 @@
 <template>
-    <div class=form-group>
-        <label :for="name">{{label}}</label>
-        <input class=form-control 
-          :type="type" 
-          :value="model" 
-          v-on:input="handleInput">
-    </div>
+  <div class="form-group">
+    <label :for="name">{{label}}</label>
+    <input class="form-control" :type="type" :value="model" v-on:input="handleInput">
+  </div>
 </template>
 <script>
 export default {
@@ -26,10 +23,8 @@ export default {
   },
   methods: {
     handleInput(e) {
-      this.$emit(
-        "update:model",
-        this.filter ? this.filter(e.target.value) : e.target.value
-      );
+      const value = this.filter ? this.filter(e.target.value) : e.target.value;
+      this.$emit("input", value);
     }
   }
 };
